@@ -1,15 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app">
+    <h1>Component: App</h1>
+    <DiaryList />
+    <DiaryInput />
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import DiaryList from "./components/DiaryList.vue";
+import DiaryInput from "./components/DiaryInput.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    DiaryList,
+    DiaryInput,
   },
 };
 </script>
