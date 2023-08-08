@@ -21,9 +21,7 @@ describe("DiaryItem.vue", () => {
     const wrapper = shallowMount(DiaryItem);
   });
 
-  it("when 'Delete' button is clicked, a conformation will showed up ", async () => {});
-
-  it("if confirmed, the object id will be found ", async () => {});
+  it("if confirmed, the object id will be found and emit it", async () => {});
 });
 
 describe("DiaryList.vue", () => {
