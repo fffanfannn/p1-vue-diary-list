@@ -2,8 +2,8 @@
   <hr />
   <div>
     <h2>Component: DiaryInput</h2>
-    <h3>Diary title preview</h3>
-    <p>Diary paragraph preview</p>
+    <h3>Preview: Diary title</h3>
+    <p>Preview: Diary paragraph</p>
 
     <label for="">Title: </label><input type="text" />
     <label for="">Content: </label
