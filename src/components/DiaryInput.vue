@@ -31,18 +31,41 @@ export default {
   },
 
   methods: {
+    // submitBtn() {
+    //   if (!this.titleText || !this.paragraphText) {
+    //     alert("Please enter a title and a paragraph");
+    //     return;
+    //   }
+    //   this.$emit("addSubmitObj", {
+    //     uid: Date.now(),
+    //     diaryTitle: this.titleText,
+    //     diaryContent: this.paragraphText,
+    //   });
+    //   this.titleText = "";
+    //   this.paragraphText = "";
+    // },
+
     submitBtn() {
-      if (!this.titleText || !this.paragraphText) {
-        alert("Please enter a title and a paragraph");
-        return;
+      function sendOrError() {
+        if (!this.titleText && !this.paragraphText) {
+          throw new Error("InvalidMonthNo");
+        }
+        this.$emit("addSubmitObj", {
+          uid: Date.now(),
+          diaryTitle: this.titleText,
+          diaryContent: this.paragraphText,
+        });
+        this.titleText = "";
+        this.paragraphText = "";
       }
-      this.$emit("addSubmitObj", {
-        uid: Date.now(),
-        diaryTitle: this.titleText,
-        diaryContent: this.paragraphText,
-      });
-      this.titleText = "";
-      this.paragraphText = "";
+
+      try {
+        sendOrError();
+      } catch (e) {
+        //   logMyErrors(e); // pass exception object to error handler (i.e. your own function)
+        console.log("catch error monthName:");
+        console.log("catch error e: ", e);
+      }
     },
   },
 };
