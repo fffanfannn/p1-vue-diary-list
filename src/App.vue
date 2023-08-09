@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Component: App</h1>
+    <h1>Component: app</h1>
     <DiaryList :diaryArray="diaryArray" />
     <DiaryInput @addSubmitObj="addSubmitObj" />
   </div>
