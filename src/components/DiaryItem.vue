@@ -1,8 +1,8 @@
 <template>
   <h3>Component: DiaryItem</h3>
   <li>
-    <h4>Diary title</h4>
-    <p>Diary paragraph</p>
+    <h4>{{ eachDiaryObj.diaryTitle }}</h4>
+    <p>{{ eachDiaryObj.diaryContent }}</p>
     <button>Delete</button>
   </li>
 </template>
@@ -10,6 +10,7 @@
 <script>
 export default {
   name: "DiaryItem",
+  props: ["eachDiaryObj"],
 };
 </script>
 <style></style>

@@ -31,9 +31,13 @@ export default {
 
   methods: {
     submitBtn() {
-      this.$emit("submit", {
-        title: this.titleText,
-        content: this.paragraphText,
+      if (!this.titleText || !this.paragraphText) {
+        alert("Please enter a title and a paragraph");
+        return;
+      }
+      this.$emit("addSubmitObj", {
+        diaryTitle: this.titleText,
+        diaryContent: this.paragraphText,
       });
       this.titleText = "";
       this.paragraphText = "";

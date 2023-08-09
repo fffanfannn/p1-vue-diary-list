@@ -3,9 +3,11 @@
   <div>
     <h2>Component: DiaryList</h2>
     <ul>
-      <DiaryItem />
-      <DiaryItem />
-      <DiaryItem />
+      <DiaryItem
+        v-for="diaryObj in diaryArray"
+        :key="diaryObj.diarytTitle"
+        :eachDiaryObj="diaryObj"
+      />
     </ul>
     <button>Previous</button>
     <button>Next</button>
@@ -19,6 +21,7 @@ export default {
   components: {
     DiaryItem,
   },
+  props: ["diaryArray"],
 };
 </script>
 <style></style>

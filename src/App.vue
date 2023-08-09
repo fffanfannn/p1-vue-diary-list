@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1>Component: App</h1>
-    <DiaryList />
-    <DiaryInput />
+    <DiaryList :diaryArray="diaryArray" />
+    <DiaryInput @addSubmitObj="addSubmitObj" />
   </div>
 </template>
 
@@ -15,6 +15,17 @@ export default {
   components: {
     DiaryList,
     DiaryInput,
+  },
+  data() {
+    return {
+      diaryArray: [],
+    };
+  },
+  methods: {
+    addSubmitObj(obj) {
+      this.diaryArray.push(obj);
+      console.log(this.diaryArray);
+    },
   },
 };
 </script>
