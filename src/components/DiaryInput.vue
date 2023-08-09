@@ -36,6 +36,7 @@ export default {
         return;
       }
       this.$emit("addSubmitObj", {
+        id: Date.now(),
         diaryTitle: this.titleText,
         diaryContent: this.paragraphText,
       });

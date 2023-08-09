@@ -5,7 +5,7 @@
     <ul>
       <DiaryItem
         v-for="diaryObj in diaryArray"
-        :key="diaryObj.diarytTitle"
+        :key="diaryObj.id"
         :eachDiaryObj="diaryObj"
       />
     </ul>
