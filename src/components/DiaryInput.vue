@@ -5,6 +5,7 @@
     <h3>{{ titleText }}</h3>
     <p>{{ paragraphText }}</p>
 
+    <!-- <form @submit.prevent="onSubmit"></form> -->
     <label for="">Title: </label>
     <input type="text" v-model="titleText" />
     <label for="">Content: </label
@@ -36,7 +37,7 @@ export default {
         return;
       }
       this.$emit("addSubmitObj", {
-        id: Date.now(),
+        uid: Date.now(),
         diaryTitle: this.titleText,
         diaryContent: this.paragraphText,
       });

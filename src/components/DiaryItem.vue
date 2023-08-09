@@ -3,7 +3,7 @@
   <li>
     <h4>{{ eachDiaryObj.diaryTitle }}</h4>
     <p>{{ eachDiaryObj.diaryContent }}</p>
-    <button>Delete</button>
+    <button @click="deleteBtn">Delete</button>
   </li>
 </template>
 
@@ -11,6 +11,12 @@
 export default {
   name: "DiaryItem",
   props: ["eachDiaryObj"],
+  methods: {
+    deleteBtn() {
+      console.log(this.eachDiaryObj.uid);
+      this.$emit("deleteObjId", this.eachDiaryObj.uid);
+    },
+  },
 };
 </script>
 <style></style>
