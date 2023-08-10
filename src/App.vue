@@ -18,7 +18,14 @@ export default {
   },
   data() {
     return {
-      diaryArray: [],
+      diaryArray: [
+        {
+          uid: 1,
+          diaryTitle: "This is my diary title",
+          diaryContent:
+            "This is my diary content. This is my diary content.This is my diary content.",
+        },
+      ],
     };
   },
   methods: {
