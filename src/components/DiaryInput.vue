@@ -2,7 +2,7 @@
   <hr />
   <div>
     <h2>Component: DiaryInput</h2>
-    <h3>{{ titleText }}</h3>
+    <h2>{{ titleText }}</h2>
     <p>{{ paragraphText }}</p>
 
     <!-- <form @submit.prevent="onSubmit"></form> -->

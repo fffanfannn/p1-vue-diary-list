@@ -4,13 +4,13 @@
     <h2>Component: DiaryList</h2>
     <ul>
       <DiaryItem
-        v-for="diaryObj in diaryArray.slice(-3)"
+        v-for="diaryObj in definedArray"
         :key="diaryObj.id"
         :eachDiaryObj="diaryObj"
         @deleteObjId="deleteObjId"
       />
     </ul>
-    <button>Previous</button>
+    <button @click="previousPage">Previous</button>
     <button @click="nextPage">Next</button>
   </div>
 </template>
@@ -28,8 +28,18 @@ export default {
       this.$emit("deleteObjId", id);
     },
 
+    previousPage() {},
     nextPage() {},
   },
+
+  // computed: {
+  //   definedArray() {
+  //     if (previousPage) {
+  //       return this.diaryArray.slice(-6, -3);
+  //     }
+  //     return this.diaryArray.slice(-3);
+  //   },
+  // },
 };
 </script>
 <style></style>
