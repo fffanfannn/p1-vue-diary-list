@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import DiaryInput from "@/components/DiaryInput.vue";
 
 describe("DiaryInput.vue", () => {
-  it("check input title can be displayed in title preview area", () => { });
+  it("check input title can be displayed in title preview area", () => {});
 
   it("check input textarea can be displayed in paragraph preview area", () => {});
 

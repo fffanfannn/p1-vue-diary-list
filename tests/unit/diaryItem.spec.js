@@ -7,6 +7,6 @@ describe("DiaryItem.vue", () => {
   });
 
   it("render object from array and display them ", async () => {});
-  
+
   it("if 'delete' button is clicked, the object id will be found, and emit it ", async () => {});
 });
