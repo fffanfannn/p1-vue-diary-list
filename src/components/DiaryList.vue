@@ -4,13 +4,15 @@
     <h2>Component: DiaryList</h2>
     <ul>
       <DiaryItem
-        v-for="diaryObj in diaryArray.slice(-3)"
+        v-for="diaryObj in diaryArray.slice(-2)"
         :key="diaryObj.id"
         :eachDiaryObj="diaryObj"
         @deleteObjId="deleteObjId"
       />
     </ul>
+
     <button @click="previousPage">Previous</button>
+    <h2>? /{{ pageCount }}</h2>
     <button @click="nextPage">Next</button>
   </div>
 </template>
@@ -22,6 +24,7 @@ export default {
   components: {
     DiaryItem,
   },
+
   props: ["diaryArray"],
   methods: {
     deleteObjId(id) {
@@ -30,6 +33,13 @@ export default {
 
     previousPage() {},
     nextPage() {},
+  },
+
+  computed: {
+    pageCount() {
+      const pagecount = Math.ceil(this.diaryArray.length / 2);
+      return pagecount;
+    },
   },
 
   // computed: {
