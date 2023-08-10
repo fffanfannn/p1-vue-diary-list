@@ -33,20 +33,6 @@ export default {
   },
 
   methods: {
-    // submitBtn() {
-    //   if (!this.titleText || !this.paragraphText) {
-    //     alert("Please enter a title and a paragraph");
-    //     return;
-    //   }
-    //   this.$emit("addSubmitObj", {
-    //     uid: Date.now(),
-    //     diaryTitle: this.titleText,
-    //     diaryContent: this.paragraphText,
-    //   });
-    //   this.titleText = "";
-    //   this.paragraphText = "";
-    // },
-
     submitBtn() {
       try {
         if (!this.titleText || !this.paragraphText) {
