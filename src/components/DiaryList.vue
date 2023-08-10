@@ -4,7 +4,7 @@
     <h2>Component: DiaryList</h2>
     <ul>
       <DiaryItem
-        v-for="diaryObj in diaryArray"
+        v-for="diaryObj in diaryArray.slice(-3)"
         :key="diaryObj.id"
         :eachDiaryObj="diaryObj"
         @deleteObjId="deleteObjId"
