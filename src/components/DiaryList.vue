@@ -2,6 +2,18 @@
   <hr />
   <div>
     <h2>Component: DiaryList</h2>
+    <input type="text" v-model="searchText" />
+    <button @click="searchBtn">search</button>
+
+    <ul>
+      <DiaryItem
+        v-for="diaryObj in searchArray"
+        :key="diaryObj.id"
+        :eachDiaryObj="diaryObj"
+        @deleteObjId="deleteObjId"
+      />
+    </ul>
+
     <ul>
       <DiaryItem
         v-for="diaryObj in diaryArray.slice(-3)"
@@ -43,6 +55,7 @@ export default {
   data() {
     return {
       isSortedByDate: false,
+      searchArray: [],
     };
   },
   methods: {
@@ -52,6 +65,15 @@ export default {
 
     sortByDate() {
       this.isSortedByDate = !this.isSortedByDate;
+    },
+
+    searchBtn() {
+      for (let diaryObj of this.diaryArray) {
+        if (this.searchText === diaryObj.diaryTitle) {
+          this.searchArray = [];
+          this.searchArray.push(diaryObj);
+        }
+      }
     },
   },
 
