@@ -3,8 +3,9 @@
   <div>
     <h2>Component: DiaryList</h2>
     <ul>
+      <button @click="sortByDate">Sort by date</button>
       <DiaryItem
-        v-for="diaryObj in diaryArray.slice(-2)"
+        v-for="diaryObj in diaryArray.slice(-3)"
         :key="diaryObj.id"
         :eachDiaryObj="diaryObj"
         @deleteObjId="deleteObjId"
@@ -33,8 +34,7 @@ export default {
       this.$emit("deleteObjId", id);
     },
 
-    previousPage() {},
-    nextPage() {},
+    sortByDate() {},
   },
 
   computed: {
@@ -44,7 +44,7 @@ export default {
     },
 
     pageCount() {
-      const pagecount = Math.ceil(this.diaryArray.length / 2);
+      const pagecount = Math.ceil(this.diaryArray.length / 3);
       return pagecount;
     },
   },

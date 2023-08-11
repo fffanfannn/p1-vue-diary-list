@@ -24,6 +24,7 @@ export default {
           diaryTitle: "This is my diary title",
           diaryContent:
             "This is my diary content. This is my diary content.This is my diary content.",
+          diaryDate: "2023-08-09",
         },
       ],
     };
