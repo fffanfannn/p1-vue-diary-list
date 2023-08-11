@@ -3,7 +3,6 @@
   <div>
     <h2>Component: DiaryList</h2>
     <ul>
-      <button @click="sortByDate">Sort by date</button>
       <DiaryItem
         v-for="diaryObj in diaryArray.slice(-3)"
         :key="diaryObj.id"
@@ -17,6 +16,17 @@
       <h3>Page: / {{ pageCount }}</h3>
       <button @click="nextPage">Next</button>
     </div>
+    <div>
+      <button @click="sortByDate">Sort by date</button>
+      <ul v-if="isSortedByDate">
+        <DiaryItem
+          v-for="diaryObj in displayedDiaryArray"
+          :key="diaryObj.id"
+          :eachDiaryObj="diaryObj"
+          @deleteObjId="deleteObjId"
+        />
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -29,12 +39,20 @@ export default {
   },
 
   props: ["diaryArray"],
+
+  data() {
+    return {
+      isSortedByDate: false,
+    };
+  },
   methods: {
     deleteObjId(id) {
       this.$emit("deleteObjId", id);
     },
 
-    sortByDate() {},
+    sortByDate() {
+      this.isSortedByDate = !this.isSortedByDate;
+    },
   },
 
   computed: {
@@ -46,6 +64,16 @@ export default {
     pageCount() {
       const pagecount = Math.ceil(this.diaryArray.length / 3);
       return pagecount;
+    },
+
+    displayedDiaryArray() {
+      const copyArray = [...this.diaryArray]; // Create a copy of the prop
+      if (this.isSortedByDate) {
+        return copyArray.sort(
+          (a, b) => new Date(b.diaryDate) - new Date(a.diaryDate)
+        );
+      }
+      return copyArray;
     },
   },
 
@@ -70,7 +98,7 @@ ul {
 }
 
 .pageBtn {
-  margin-top: 3rem;
+  margin: 2rem auto;
   display: flex;
   gap: 2rem;
   justify-content: center;

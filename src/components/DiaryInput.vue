@@ -4,7 +4,6 @@
     <h2>Component: DiaryInput</h2>
     <h2>{{ titleText }}</h2>
     <p>{{ paragraphText }}</p>
-
     <!-- <form @submit.prevent="onSubmit"></form> -->
     <label for="">Title: </label>
     <input type="text" v-model="titleText" />
@@ -18,13 +17,34 @@
     ></textarea>
     <div class="inputSelection">
       <label for="">Memories: </label>
-      <input type="radio" name="memories1" value="speDay" />
+
+      <input
+        type="checkbox"
+        name="memories1"
+        value="special day"
+        v-model="memory"
+      />
       <label for="memories1">Special Day </label>
-      <input type="radio" name="memories2" value="celebration" />
+      <input
+        type="checkbox"
+        name="memories2"
+        value="celebration"
+        v-model="memory"
+      />
       <label for="memories2">Celebration </label>
-      <input type="radio" name="memories3" value="achievement" />
+      <input
+        type="checkbox"
+        name="memories3"
+        value="achievement"
+        v-model="memory"
+      />
       <label for="memories3">Achievement </label>
-      <input type="radio" name="memories4" value="milestone" />
+      <input
+        type="checkbox"
+        name="memories4"
+        value="milestone"
+        v-model="memory"
+      />
       <label for="memories4">Milestone</label>
     </div>
     <input type="date" name="dateDiary" v-model="dateDiary" />
@@ -41,6 +61,7 @@ export default {
       titleText: "",
       paragraphText: "",
       errorMsg: "",
+      memory: [],
     };
   },
 
@@ -54,6 +75,7 @@ export default {
           uid: Date.now(),
           diaryTitle: this.titleText,
           diaryContent: this.paragraphText,
+          diaryMemory: this.memory,
           diaryDate: this.dateDiary,
         });
         this.titleText = "";

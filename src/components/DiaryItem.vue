@@ -3,6 +3,15 @@
     <h3>Component: DiaryItem</h3>
     <h4>{{ eachDiaryObj.diaryTitle }}</h4>
     <p>{{ eachDiaryObj.diaryContent }}</p>
+
+    Memories:
+    <div class="clnmemories">
+      <p v-for="(tag, index) in eachDiaryObj.diaryMemory" :key="index">
+        {{ tag }}
+      </p>
+    </div>
+
+    <!-- <p>Memory: {{ eachDiaryObj.diaryMemory }}</p> -->
     <p>{{ daysCalculation }}</p>
     <button @click="deleteBtn">Delete</button>
   </li>
@@ -12,6 +21,12 @@
 export default {
   name: "DiaryItem",
   props: ["eachDiaryObj"],
+  data() {
+    return {
+      isHasMemory: this.isMemory,
+    };
+  },
+
   methods: {
     deleteBtn() {
       console.log(this.eachDiaryObj.uid);
@@ -34,6 +49,14 @@ export default {
         return `${months} month${months > 1 ? "s" : ""} ago`;
       }
     },
+
+    // isHasMemory() {
+    //   if (document.getElementById("box") == "") {
+    //     return (this.isMemory = false);
+    //   } else {
+    //     return (this.isMemory = true);
+    //   }
+    // },
   },
 };
 </script>
@@ -42,5 +65,18 @@ li {
   width: 300px;
   padding: 1rem;
   flex-wrap: wrap;
+  list-style: none;
+}
+
+.clnmemories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.clnmemories p {
+  padding: 5px 10px;
+  border: 1px solid rgb(0, 140, 255);
+  border-radius: 15px;
 }
 </style>
