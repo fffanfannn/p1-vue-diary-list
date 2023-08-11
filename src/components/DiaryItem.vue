@@ -1,6 +1,6 @@
 <template>
-  <h3>Component: DiaryItem</h3>
   <li>
+    <h3>Component: DiaryItem</h3>
     <h4>{{ eachDiaryObj.diaryTitle }}</h4>
     <p>{{ eachDiaryObj.diaryContent }}</p>
     <button @click="deleteBtn">Delete</button>
@@ -19,4 +19,10 @@ export default {
   },
 };
 </script>
-<style></style>
+<style scoped lang="scss">
+li {
+  width: 300px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+</style>

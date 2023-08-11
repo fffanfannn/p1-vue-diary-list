@@ -16,6 +16,7 @@
       rows="10"
       v-model="paragraphText"
     ></textarea>
+
     <button @click="submitBtn">Submit</button>
     <p>{{ errorMsg }}</p>
   </div>

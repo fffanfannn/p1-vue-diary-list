@@ -10,10 +10,12 @@
         @deleteObjId="deleteObjId"
       />
     </ul>
-
-    <button @click="previousPage">Previous</button>
-    <h2>? /{{ pageCount }}</h2>
-    <button @click="nextPage">Next</button>
+    <div class="pageBtn">
+      <h3>Total: {{ diaryNum }}</h3>
+      <button @click="previousPage">Previous</button>
+      <h3>Page: / {{ pageCount }}</h3>
+      <button @click="nextPage">Next</button>
+    </div>
   </div>
 </template>
 
@@ -36,6 +38,11 @@ export default {
   },
 
   computed: {
+    diaryNum() {
+      const diarynum = this.diaryArray.length;
+      return diarynum;
+    },
+
     pageCount() {
       const pagecount = Math.ceil(this.diaryArray.length / 2);
       return pagecount;
@@ -52,4 +59,21 @@ export default {
   // },
 };
 </script>
-<style></style>
+<style scoped lang="scss">
+ul {
+  display: flex;
+  gap: 3rem;
+  margin: auto;
+  justify-content: center;
+  align-items: start;
+  list-style: none;
+}
+
+.pageBtn {
+  margin-top: 3rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+</style>
