@@ -49,7 +49,7 @@
     </div>
     <input type="date" name="dateDiary" v-model="dateDiary" />
     <button @click="submitBtn">Submit</button>
-    <p>{{ errorMsg }}</p>
+    <span>{{ errorMsg }}</span>
   </div>
 </template>
 
