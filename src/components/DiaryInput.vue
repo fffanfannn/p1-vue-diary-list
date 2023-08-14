@@ -1,56 +1,58 @@
 <template>
-  <hr />
-  <div class="inputSection">
-    <h2>Component: DiaryInput</h2>
-    <h2>{{ titleText }}</h2>
-    <p>{{ paragraphText }}</p>
-    <!-- <form @submit.prevent="onSubmit"></form> -->
-    <label for="">Title: </label>
-    <input type="text" v-model="titleText" />
-    <label for="">Content: </label
-    ><textarea
-      name=""
-      id=""
-      cols="30"
-      rows="10"
-      v-model="paragraphText"
-    ></textarea>
-    <div class="inputSelection">
-      <label for="">Memories: </label>
+  <section class="diaryCreate">
+    <div class="container">
+      <h2>Create Diary</h2>
+      <h3>{{ titleText }}</h3>
+      <p>{{ paragraphText }}</p>
+      <!-- <form @submit.prevent="onSubmit"></form> -->
+      <label for="">Title: <input type="text" v-model="titleText" /></label>
+      <label for=""
+        >Content:
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          v-model="paragraphText"
+        ></textarea>
+      </label>
+      <div class="inputSelection">
+        <label for="">Memories: </label>
 
-      <input
-        type="checkbox"
-        name="memories1"
-        value="special day"
-        v-model="memory"
-      />
-      <label for="memories1">Special Day </label>
-      <input
-        type="checkbox"
-        name="memories2"
-        value="celebration"
-        v-model="memory"
-      />
-      <label for="memories2">Celebration </label>
-      <input
-        type="checkbox"
-        name="memories3"
-        value="achievement"
-        v-model="memory"
-      />
-      <label for="memories3">Achievement </label>
-      <input
-        type="checkbox"
-        name="memories4"
-        value="milestone"
-        v-model="memory"
-      />
-      <label for="memories4">Milestone</label>
+        <input
+          type="checkbox"
+          name="memories1"
+          value="special day"
+          v-model="memory"
+        />
+        <label for="memories1">Special Day </label>
+        <input
+          type="checkbox"
+          name="memories2"
+          value="celebration"
+          v-model="memory"
+        />
+        <label for="memories2">Celebration </label>
+        <input
+          type="checkbox"
+          name="memories3"
+          value="achievement"
+          v-model="memory"
+        />
+        <label for="memories3">Achievement </label>
+        <input
+          type="checkbox"
+          name="memories4"
+          value="milestone"
+          v-model="memory"
+        />
+        <label for="memories4">Milestone</label>
+      </div>
+      <input type="date" name="dateDiary" v-model="dateDiary" />
+      <button @click="submitBtn">Submit</button>
+      <span>{{ errorMsg }}</span>
     </div>
-    <input type="date" name="dateDiary" v-model="dateDiary" />
-    <button @click="submitBtn">Submit</button>
-    <span>{{ errorMsg }}</span>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -89,8 +91,19 @@ export default {
   },
 };
 </script>
-<style>
-.inputSelection {
-  margin: 2rem 0;
+<style scoped lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.diaryCreate {
+  padding: 20px 0;
 }
 </style>

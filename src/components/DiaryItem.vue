@@ -11,8 +11,8 @@
     </div>
     <!-- <p>Memory: {{ eachDiaryObj.diaryMemory }}</p> -->
     <div class="diaryDate">
-      <p>{{ daysCalculation }}</p>
       <button @click="deleteBtn">Delete</button>
+      <p>{{ daysCalculation }}</p>
     </div>
   </div>
 </template>
@@ -66,9 +66,14 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
 .diaryCard {
   padding: 1rem 2rem;
-  border: 1px solid rgba(0, 140, 255, 0.637);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 0px 3px 0 rgba(0, 0, 0, 0.19);
   text-align: left;
   width: 90%;
   margin: 1rem auto;
@@ -95,7 +100,7 @@ export default {
 
       li {
         padding: 5px 10px;
-        border: 1px solid rgb(255 186 0);
+        border: 1px solid rgb(143, 193, 235);
         border-radius: 15px;
         font-size: 0.8rem;
       }

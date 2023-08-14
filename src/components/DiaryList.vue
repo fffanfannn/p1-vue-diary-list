@@ -222,7 +222,7 @@
               y="209.3"
             />
           </svg>
-          <h1>My Diarybook</h1>
+          <h1>My Diary</h1>
         </div>
         <ul>
           <li><button @click="sortByInputDisplay">Diary input</button></li>
@@ -236,7 +236,7 @@
   <section class="searchDisplay" v-if="isSortBySearchDisplay">
     <div class="container">
       <input type="text" v-model="searchText" placeholder="search by title" />
-      <button @click="searchBtn">search</button>
+      <button @click="searchBtn">Search</button>
       <div>
         <DiaryItem
           v-for="diaryObj in searchArray"
@@ -381,7 +381,7 @@ header {
     .logo {
       display: flex;
       justify-content: center;
-      align-items: end;
+      align-items: center;
       gap: 2rem;
 
       svg {
@@ -431,6 +431,10 @@ header {
           fill: #64639c;
         }
       }
+
+      h1 {
+        letter-spacing: 0.1rem;
+      }
     }
 
     ul {
@@ -455,15 +459,54 @@ header {
 }
 
 .inputDisplay {
-  // div {
-  //   border: 1px solid gray;
-  // }
+  padding: 20px 0;
+  .pageBtn {
+    margin: 2rem auto;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
 }
-.pageBtn {
-  margin: 2rem auto;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
+
+.searchDisplay {
+  padding: 20px 0;
+  input {
+    padding: 7px 15px;
+    border: 1px solid rgb(183, 216, 255);
+  }
+  button {
+    border: none;
+    padding: 7px 15px;
+    font-size: 1rem;
+    transition: 1s;
+    background-color: #6bbfff;
+    color: white;
+
+    &:hover {
+      background-color: rgb(255 186 0);
+      cursor: pointer;
+    }
+  }
+}
+
+.dateDisplay {
+  padding: 20px 0;
+  button {
+    border: none;
+    padding: 7px 15px;
+    font-size: 1rem;
+    transition: 1s;
+    background-color: #6bbfff;
+    width: 280px;
+    color: white;
+    letter-spacing: 0.1rem;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: rgb(255 186 0);
+      cursor: pointer;
+    }
+  }
 }
 </style>
