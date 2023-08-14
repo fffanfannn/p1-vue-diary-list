@@ -5,8 +5,6 @@
         <div class="logo">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 2050 2050"
             data-name="Layer 2"
             id="Layer_2"
@@ -222,7 +220,7 @@
               y="209.3"
             />
           </svg>
-          <h1>My Diary</h1>
+          <h1>MY DIARY</h1>
         </div>
         <ul>
           <li>
@@ -259,7 +257,7 @@
     <div class="container">
       <input type="text" v-model="searchText" placeholder="search by title" />
       <button @click="searchBtn">Search</button>
-      <div>
+      <div class="flexbox">
         <DiaryItem
           v-for="diaryObj in searchArray"
           :key="diaryObj.id"
@@ -273,7 +271,7 @@
   <section class="dateDisplay" v-if="isSortByDateDisplay">
     <div class="container">
       <button @click="sortByDate">Sort by date</button>
-      <div v-if="isSortedByDate">
+      <div v-if="isSortedByDate" class="flexbox">
         <DiaryItem
           v-for="diaryObj in displayedDiaryArray"
           :key="diaryObj.id"
@@ -286,7 +284,7 @@
 
   <section class="inputDisplay" v-if="isSortByInputDisplay">
     <div class="container">
-      <div>
+      <div class="flexbox">
         <DiaryItem
           v-for="diaryObj in diaryArray.slice(-3)"
           :key="diaryObj.id"
@@ -381,185 +379,4 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.container {
-  max-width: 900px;
-  width: 90%;
-  margin: 0 auto;
-}
-
-header {
-  margin-bottom: 2rem;
-  .flexbox {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
-    .logo {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      svg {
-        .cls-1 {
-          fill: #f4c23f;
-        }
-        .cls-2 {
-          fill: #f4a93f;
-        }
-        .cls-3 {
-          fill: #67baeb;
-        }
-        .cls-4 {
-          fill: #46a1f8;
-        }
-        .cls-5 {
-          fill: #4d4c78;
-        }
-        .cls-6 {
-          fill: #323150;
-        }
-        .cls-7 {
-          fill: #de3226;
-        }
-        .cls-8 {
-          fill: #231f20;
-        }
-        .cls-9 {
-          fill: #b9b1e0;
-        }
-        .cls-10 {
-          fill: #b11a31;
-        }
-        .cls-11 {
-          fill: #b1a9d6;
-        }
-        .cls-12 {
-          fill: #83d0fb;
-        }
-        .cls-13 {
-          fill: #fad564;
-        }
-        .cls-14 {
-          fill: #f44533;
-        }
-        .cls-15 {
-          fill: #64639c;
-        }
-      }
-
-      h1 {
-        letter-spacing: 0.2rem;
-      }
-    }
-
-    ul {
-      display: flex;
-      list-style: none;
-      width: 90%;
-      margin: 0 auto;
-      border: 1px solid rgb(72, 182, 255);
-      border-radius: 10px;
-      overflow: hidden;
-
-      li {
-        width: 100%;
-      }
-
-      .middleBtn {
-        border-right: 1px solid rgb(72, 182, 255);
-        border-left: 1px solid rgb(72, 182, 255);
-      }
-
-      button {
-        border: none;
-        padding: 7px 15px;
-        font-size: 1rem;
-        transition: 1s;
-        background-color: transparent;
-        letter-spacing: 0.1rem;
-        display: block;
-        width: 100%;
-        color: rgb(0, 153, 255);
-        font-weight: 600;
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-
-      .isSortByInputDisplay {
-        background-color: rgb(72, 182, 255);
-        color: white;
-      }
-
-      .isSortBySearchDisplay {
-        background-color: rgb(72, 182, 255);
-        color: white;
-      }
-
-      .isSortByDateDisplay {
-        background-color: rgb(72, 182, 255);
-        color: white;
-      }
-    }
-  }
-}
-
-.inputDisplay {
-  padding: 20px 0;
-  .pageBtn {
-    margin: 2rem auto;
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.searchDisplay {
-  padding: 20px 0;
-  input {
-    padding: 7px 15px;
-    border: 1px solid rgb(183, 216, 255);
-  }
-  button {
-    border: none;
-    padding: 7px 15px;
-    font-size: 1rem;
-    transition: 1s;
-    background-color: #6bbfff;
-    color: white;
-
-    &:hover {
-      background-color: rgb(255 186 0);
-      cursor: pointer;
-    }
-  }
-}
-
-.dateDisplay {
-  padding: 20px 0;
-  button {
-    border: none;
-    padding: 7px 15px;
-    font-size: 1rem;
-    transition: 1s;
-    background-color: #6bbfff;
-    width: 280px;
-    color: white;
-    letter-spacing: 0.1rem;
-    border-radius: 10px;
-
-    &:hover {
-      background-color: rgb(255 186 0);
-      cursor: pointer;
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>

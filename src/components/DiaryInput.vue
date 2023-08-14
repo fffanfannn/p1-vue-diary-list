@@ -6,7 +6,12 @@
         <div class="formBox">
           <div class="inputControl">
             <label for="">Title: </label>
-            <input class="inputBox" type="text" v-model="titleText" />
+            <input
+              class="inputBox"
+              type="text"
+              v-model="titleText"
+              data-testid="inputBox"
+            />
           </div>
           <div class="inputControl">
             <label for="">Content:</label>
@@ -17,6 +22,7 @@
               cols="30"
               rows="10"
               v-model="paragraphText"
+              data-testid="textareaBox"
             ></textarea>
           </div>
           <div class="inputControl">
@@ -113,78 +119,4 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.container {
-  max-width: 900px;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.diaryCreate {
-  padding: 20px 0;
-
-  .container {
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.19);
-    padding: 2rem;
-    border-radius: 10px;
-    h2 {
-      margin-bottom: 2rem;
-    }
-
-    .formBox {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      text-align: left;
-
-      .inputControl {
-        display: flex;
-
-        label {
-          width: 30%;
-        }
-
-        .inputBox {
-          width: 70%;
-
-          input {
-            margin-right: 1rem;
-          }
-        }
-
-        textarea {
-          height: 80px;
-        }
-      }
-      button {
-        border: none;
-        padding: 7px 15px;
-        font-size: 1rem;
-        transition: 1s;
-        background-color: #6bbfff;
-        color: white;
-        font-weight: 600;
-        border-radius: 5px;
-        letter-spacing: 0.1rem;
-        margin: 1rem 0;
-        display: block;
-
-        &:hover {
-          background-color: rgb(255 186 0);
-          cursor: pointer;
-        }
-      }
-    }
-
-    span {
-      color: rgb(255 186 0);
-      font-weight: 900;
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>

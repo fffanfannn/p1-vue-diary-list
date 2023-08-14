@@ -9,11 +9,17 @@ describe("DiaryInput.vue", () => {
       "Please enter a title and a paragraph"
     );
   });
-  //   it("check input title can be displayed in title preview area", () => {});
 
-  //   it("check input textarea can be displayed in paragraph preview area", () => {});
+  it("if has input text, when submit button is clicked, addSubmitObj will be emited", async () => {
+    const wrapper = shallowMount(DiaryInput);
+    await wrapper.find("button").trigger("click");
+    expect(wrapper.emitted().addSubmitObj).toBeTruthy;
+  });
 
-  //   it("if has input text, when submit button is clicked, an new object will be created, and emit it", () => {});
-
-  //   it("if empty input, when submit button is clicked, an alert will show up", () => {});
+  it("After submit button is clicked, input and textarea is empty", async () => {
+    const wrapper = shallowMount(DiaryInput);
+    await wrapper.find("button").trigger("click");
+    expect(wrapper.find('[data-testid="inputBox"]').text()).toBe("");
+    expect(wrapper.find('[data-testid="textareaBox"]').text()).toBe("");
+  });
 });
