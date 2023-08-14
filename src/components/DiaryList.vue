@@ -225,9 +225,31 @@
           <h1>My Diary</h1>
         </div>
         <ul>
-          <li><button @click="sortByInputDisplay">Diary input</button></li>
-          <li><button @click="sortBySearchDisplay">Search</button></li>
-          <li><button @click="sortByDateDisplay">Sort by date</button></li>
+          <li>
+            <button
+              @click="sortByInputDisplay"
+              :class="{ isSortByInputDisplay: isSortByInputDisplay }"
+            >
+              Create
+            </button>
+          </li>
+          <li class="middleBtn">
+            <button
+              @click="sortBySearchDisplay"
+              :class="{ isSortBySearchDisplay: isSortBySearchDisplay }"
+            >
+              Search
+            </button>
+          </li>
+
+          <li>
+            <button
+              @click="sortByDateDisplay"
+              :class="{ isSortByDateDisplay: isSortByDateDisplay }"
+            >
+              Sort
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -307,7 +329,7 @@ export default {
     },
 
     sortBySearchDisplay() {
-      this.isSortBySearchDisplay = true;
+      this.isSortBySearchDisplay = !this.isSortBySearchDisplay;
       this.isSortByInputDisplay = false;
     },
 
@@ -318,7 +340,7 @@ export default {
     },
 
     sortByDateDisplay() {
-      this.isSortByDateDisplay = true;
+      this.isSortByDateDisplay = !this.isSortByDateDisplay;
       this.isSortByInputDisplay = false;
     },
 
@@ -366,7 +388,7 @@ export default {
   box-sizing: border-box;
 }
 .container {
-  max-width: 800px;
+  max-width: 900px;
   width: 90%;
   margin: 0 auto;
 }
@@ -376,13 +398,12 @@ header {
   .flexbox {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
 
     .logo {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
-      gap: 2rem;
 
       svg {
         .cls-1 {
@@ -433,26 +454,58 @@ header {
       }
 
       h1 {
-        letter-spacing: 0.1rem;
+        letter-spacing: 0.2rem;
       }
     }
 
     ul {
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
       list-style: none;
+      width: 90%;
+      margin: 0 auto;
+      border: 1px solid rgb(72, 182, 255);
+      border-radius: 10px;
+      overflow: hidden;
+
+      li {
+        width: 100%;
+      }
+
+      .middleBtn {
+        border-right: 1px solid rgb(72, 182, 255);
+        border-left: 1px solid rgb(72, 182, 255);
+      }
 
       button {
         border: none;
         padding: 7px 15px;
         font-size: 1rem;
         transition: 1s;
+        background-color: transparent;
+        letter-spacing: 0.1rem;
+        display: block;
+        width: 100%;
+        color: rgb(0, 153, 255);
+        font-weight: 600;
 
         &:hover {
-          background-color: #afdbff;
           cursor: pointer;
         }
+      }
+
+      .isSortByInputDisplay {
+        background-color: rgb(72, 182, 255);
+        color: white;
+      }
+
+      .isSortBySearchDisplay {
+        background-color: rgb(72, 182, 255);
+        color: white;
+      }
+
+      .isSortByDateDisplay {
+        background-color: rgb(72, 182, 255);
+        color: white;
       }
     }
   }

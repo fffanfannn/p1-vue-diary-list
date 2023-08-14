@@ -67,13 +67,13 @@ export default {
   box-sizing: border-box;
 }
 .container {
-  max-width: 800px;
+  max-width: 900px;
   width: 90%;
   margin: 0 auto;
 }
 .diaryCard {
   padding: 1rem 2rem;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 0px 3px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid rgb(175, 175, 175);
   text-align: left;
   width: 90%;
   margin: 1rem auto;
