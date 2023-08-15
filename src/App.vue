@@ -252,7 +252,7 @@ header {
 
 .dateDisplay {
   padding: 20px 0;
-  button {
+  .sort-btn {
     border: none;
     padding: 7px 15px;
     font-size: 1rem;
@@ -320,6 +320,7 @@ header {
       transition: 1s;
       border-radius: 10px;
       background-color: #cae8ff;
+      color: black;
 
       &:hover {
         background-color: rgb(255 186 0);

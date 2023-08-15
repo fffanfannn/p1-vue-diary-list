@@ -227,6 +227,7 @@
             <button
               @click="sortByInputDisplay"
               :class="{ isSortByInputDisplay: isSortByInputDisplay }"
+              date-testid="create-button"
             >
               Create
             </button>
@@ -235,6 +236,7 @@
             <button
               @click="sortBySearchDisplay"
               :class="{ isSortBySearchDisplay: isSortBySearchDisplay }"
+              date-testid="search-button"
             >
               Search
             </button>
@@ -244,6 +246,7 @@
             <button
               @click="sortByDateDisplay"
               :class="{ isSortByDateDisplay: isSortByDateDisplay }"
+              date-testid="sort-button"
             >
               Sort
             </button>
@@ -256,7 +259,7 @@
   <section class="searchDisplay" v-if="isSortBySearchDisplay">
     <div class="container">
       <input type="text" v-model="searchText" placeholder="search by title" />
-      <button @click="searchBtn">Search</button>
+      <button @click="searchBtn" date-testid="search-btn">Search</button>
       <div class="flexbox">
         <DiaryItem
           v-for="diaryObj in searchArray"
@@ -270,7 +273,7 @@
 
   <section class="dateDisplay" v-if="isSortByDateDisplay">
     <div class="container">
-      <button @click="sortByDate">Sort by date</button>
+      <button @click="sortByDate" class="sort-btn">Sort by date</button>
       <div v-if="isSortedByDate" class="flexbox">
         <DiaryItem
           v-for="diaryObj in displayedDiaryArray"

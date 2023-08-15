@@ -12,7 +12,7 @@
     <!-- <p>Memory: {{ eachDiaryObj.diaryMemory }}</p> -->
     <div class="diaryDate">
       <button @click="deleteBtn">Delete</button>
-      <p>{{ daysCalculation }}</p>
+      <p date-testid="date-calculation">{{ daysCalculation }}</p>
     </div>
   </div>
 </template>
