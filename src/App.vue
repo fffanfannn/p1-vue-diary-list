@@ -449,14 +449,27 @@ header {
   }
 
   .diaryCreate {
-    .checkBox {
-      display: flex;
-      justify-content: start;
-      flex-wrap: wrap;
+    .container {
+      .formBox {
+        .inputControl {
+          label {
+            width: 20%;
+            padding-left: 1.5rem;
+          }
+          .inputBox {
+            width: 80%;
+          }
+          .checkBox {
+            display: flex;
+            justify-content: start;
+            flex-wrap: wrap;
 
-      div {
-        width: 50%;
-        margin-bottom: 0.5rem;
+            div {
+              width: 50%;
+              margin-bottom: 0.5rem;
+            }
+          }
+        }
       }
     }
   }
