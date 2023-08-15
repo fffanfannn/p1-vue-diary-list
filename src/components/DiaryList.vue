@@ -258,7 +258,12 @@
 
   <section class="searchDisplay" v-if="isSortBySearchDisplay">
     <div class="container">
-      <input type="text" v-model="searchText" placeholder="search by title" />
+      <input
+        type="text"
+        v-model="searchText"
+        @input="searchBtn"
+        placeholder="search by title"
+      />
       <button @click="searchBtn" date-testid="search-btn">Search</button>
       <div class="flexbox">
         <DiaryItem
@@ -289,7 +294,7 @@
     <div class="container">
       <div class="flexbox">
         <DiaryItem
-          v-for="diaryObj in diaryArray.slice(-3)"
+          v-for="diaryObj in diaryArray"
           :key="diaryObj.id"
           :eachDiaryObj="diaryObj"
           @deleteObjId="deleteObjId"
@@ -297,9 +302,6 @@
       </div>
       <div class="pageBtn">
         <h3>Total: {{ diaryNum }}</h3>
-        <button @click="previousPage">Previous</button>
-        <h3>Page: / {{ pageCount }}</h3>
-        <button @click="nextPage">Next</button>
       </div>
     </div>
   </section>
@@ -349,13 +351,27 @@ export default {
       this.isSortedByDate = !this.isSortedByDate;
     },
 
+    // searchBtn() {
+    //   for (let diaryObj of this.diaryArray) {
+    //     if (this.searchText === diaryObj.diaryTitle) {
+    //       this.searchArray = [];
+    //       this.searchArray.push(diaryObj);
+    //     }
+    //   }
+    // },
+
     searchBtn() {
+      const searchRegExp = new RegExp(this.searchText, "gi"); // 'gi' flags for global and case-insensitive matching
+
+      this.searchArray = [];
+
       for (let diaryObj of this.diaryArray) {
-        if (this.searchText === diaryObj.diaryTitle) {
-          this.searchArray = [];
+        if (searchRegExp.test(diaryObj.diaryTitle)) {
           this.searchArray.push(diaryObj);
         }
       }
+
+      console.log("search array:", this.searchArray);
     },
   },
 
