@@ -361,18 +361,55 @@ export default {
     // },
 
     searchBtn() {
-      const searchRegExp = new RegExp(this.searchText, "gi"); // 'gi' flags for global and case-insensitive matching
-
       this.searchArray = [];
+      console.log("1");
 
       for (let diaryObj of this.diaryArray) {
+        let searchRegExp = new RegExp(this.searchText, "gi"); // 'gi' flags for global and case-insensitive matching
+        console.log("2");
         if (searchRegExp.test(diaryObj.diaryTitle)) {
+          console.log("diaryObj:", diaryObj);
           this.searchArray.push(diaryObj);
+          console.log("3");
         }
+        console.log("4");
       }
+      console.log("5");
 
       console.log("search array:", this.searchArray);
     },
+
+    // searchBtn() {
+    //   const searchRegExp = new RegExp(this.searchText, "gi"); // 'gi' flags for global and case-insensitive matching
+
+    //   this.searchArray = [];
+
+    //   for (let diaryObj of this.diaryArray) {
+    //     const isMatch = searchRegExp.test(diaryObj.diaryTitle);
+    //     console.log(`Title: ${diaryObj.diaryTitle}, Is Match: ${isMatch}`);
+
+    //     if (isMatch) {
+    //       this.searchArray.push(diaryObj);
+    //     }
+    //   }
+
+    //   console.log("Search array:", this.searchArray);
+    // },
+
+    //   searchBtn() {
+    //     this.searchArray = [];
+
+    //     for (let diaryObj of this.diaryArray) {
+    //       const searchRegExp = new RegExp(this.searchText, "gi");
+    //       const isMatch = searchRegExp.test(diaryObj.diaryTitle);
+
+    //       if (isMatch) {
+    //         this.searchArray.push(diaryObj);
+    //       }
+    //     }
+
+    //     console.log("Search array:", this.searchArray);
+    //   },
   },
 
   computed: {
@@ -398,4 +435,5 @@ export default {
   },
 };
 </script>
+
 <style scoped lang="scss"></style>
