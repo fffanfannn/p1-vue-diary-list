@@ -378,38 +378,6 @@ export default {
 
       console.log("search array:", this.searchArray);
     },
-
-    // searchBtn() {
-    //   const searchRegExp = new RegExp(this.searchText, "gi"); // 'gi' flags for global and case-insensitive matching
-
-    //   this.searchArray = [];
-
-    //   for (let diaryObj of this.diaryArray) {
-    //     const isMatch = searchRegExp.test(diaryObj.diaryTitle);
-    //     console.log(`Title: ${diaryObj.diaryTitle}, Is Match: ${isMatch}`);
-
-    //     if (isMatch) {
-    //       this.searchArray.push(diaryObj);
-    //     }
-    //   }
-
-    //   console.log("Search array:", this.searchArray);
-    // },
-
-    //   searchBtn() {
-    //     this.searchArray = [];
-
-    //     for (let diaryObj of this.diaryArray) {
-    //       const searchRegExp = new RegExp(this.searchText, "gi");
-    //       const isMatch = searchRegExp.test(diaryObj.diaryTitle);
-
-    //       if (isMatch) {
-    //         this.searchArray.push(diaryObj);
-    //       }
-    //     }
-
-    //     console.log("Search array:", this.searchArray);
-    //   },
   },
 
   computed: {
